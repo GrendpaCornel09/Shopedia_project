@@ -57,3 +57,36 @@ Follow these steps to get Shopedia up and running on your local machine.
    git clone https://github.com/yourusername/Shopedia.git
    cd Shopedia
    
+2. **Install Dependencies**
+   ```bash
+    composer install
+    ```
+3. **Environment Configuration**
+4.   ```bash
+    cp .env.example .env
+    ```
+   - Update the `.env` file with your database credentials and other necessary configurations.
+   - Generate an application key:
+   ```bash
+    php artisan key:generate
+    ```
+5. **Database Migration and Seeding**
+    ```bash
+     php artisan migrate --seed
+     ```
+    - This will create the necessary database tables and seed them with initial data.
+6. **Run the Development Server**
+    ```bash
+     php artisan serve
+     ```
+    - Access the application at `http://localhost:8000`
+## Usage
+- Register a new user account or log in with existing credentials.
+- Explore the product catalog, add products to your cart, and manage your orders.
+- Use the API endpoints for integration with mobile apps or third-party services. Refer to the API documentation for details.
+## Acknowledgments
+- Thanks to the Laravel community for their excellent documentation and support.
+- Inspired by modern web design trends and best practices in e-commerce development.
+- Special thanks to open-source contributors whose packages and tools made this project possible.
+---
+Feel free to contribute to this project by submitting issues or pull requests on GitHub. Your feedback and contributions are highly appreciated!
