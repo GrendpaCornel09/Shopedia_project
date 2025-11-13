@@ -1,7 +1,7 @@
 # Shopedia
 
 <p align="center">
-  <strong>A modern e-commerce platform built with Laravel and Blade PHP</strong>
+  <strong>A simple e-commerce platform built with Laravel and Blade PHP</strong>
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
 
 ## About Shopedia
 
-Shopedia is a comprehensive e-commerce application designed to provide a seamless shopping experience. Built on the Laravel framework with Blade templating, this project demonstrates modern web development practices with both API and web interfaces. Whether you're looking to manage products, categories, or countries of origin, Shopedia has got you covered.
+Shopedia is a side project of mine to put my knowledge in back end development to use. Built on the Laravel framework with Blade templating, this project demonstrates modern web development practices with both API and web interfaces.
 
 ## Features
 
