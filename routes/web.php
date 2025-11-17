@@ -18,7 +18,8 @@ Route::get('/',function(){
     return view('index');
 })->name('homepage');
 
-Route::get('/login',[AuthController::class,'showLoginForm'])->name('authpage');
+Route::get('/login',[AuthController::class,'showLoginForm'])->name('loginpage');
+Route::get('/register',[AuthController::class,'showRegisterForm'])->name('registerpage');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/home',[AuthController::class,'home']);

@@ -278,7 +278,8 @@
         </div>
         <div>
             <a href="{{ route('homepage') }}">Homepage</a>
-            <a href="{{ route('authpage') }}">Login/Register</a>
+            <a href="{{ route('loginpage') }}">Login</a>
+            <a href="{{ route('registerpage') }}">Register</a>
         </div>
     </nav>
 
@@ -305,6 +306,6 @@
         <p>Made with 💗 by GrendpaCornel09 on GitHub.</p>
     </footer>
 
-    @yield('extra-js')
+    {{-- @yield('extra-js') --}}
 </body>
 </html>

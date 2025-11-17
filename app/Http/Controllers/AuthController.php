@@ -81,7 +81,10 @@ class AuthController extends Controller
 
     // frontend interaction
     public function showLoginForm(){
-        return view('auth.authentication');
+        return view('auth.login');
+    }
+    public function showRegisterForm(){
+        return view('auth.register');
     }
 
     public function home(){
