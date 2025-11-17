@@ -7,8 +7,10 @@ use App\Models\CountriesOfOrigin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\VarDumper\Caster\RedisCaster;
 
 class AuthController extends Controller
 {
@@ -17,6 +19,7 @@ class AuthController extends Controller
             'name'=>'required|string|max:50',
             'email'=>'required|string|email|unique:users,email',
             'password'=>'required|string|min:8',
+            // 'password_confirmation'=>'required|same:password',
         ]);
 
         if($validator->fails()){
@@ -72,11 +75,21 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request){
-        $request->user()->currentAccessToken()->delete();
+        if($request->expectsJson()){
+            $request->user()->currentAccessToken()->delete();
 
-        return response()->json([
-            'message'=>'logout success.',
-        ], 200);
+            return response()->json([
+                'message'=>'logout success.',
+            ], 200);
+        }
+
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('homepage')->with('success','Logout successfull.');
+
     }
 
     // frontend interaction

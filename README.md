@@ -20,7 +20,7 @@ Shopedia is a side project of mine to put my knowledge in back end development t
 
 ## Features
 
-- **User Authentication**: Secure registration and login with Laravel Sanctum
+- **User Authentication**: Secure registration and login with Laravel Sanctum for API authentication and Laravel Breeze for web authentication
 - **Product Management**: Create, read, update, and delete products with ease
 - **Category Management**: Organize products by categories
 - **Countries of Origin Tracking**: Manage product origins and track inventory by country
@@ -32,9 +32,9 @@ Shopedia is a side project of mine to put my knowledge in back end development t
 ## Tech Stack
 
 - **Backend**: Laravel 11.x
-- **Frontend**: Blade PHP, HTML5, CSS3
+- **Frontend**: Blade PHP, HTML5, CSS3, Laravel Breeze
 - **Database**: MySQL/MariaDB
-- **Authentication**: Laravel Sanctum
+- **Authentication**: Laravel Sanctum, Laravel Breeze
 - **API Documentation**: RESTful API design
 - **Server**: Laragon (Local Development)
 
