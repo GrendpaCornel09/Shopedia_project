@@ -62,7 +62,7 @@ Follow these steps to get Shopedia up and running on your local machine.
     composer install
     ```
 3. **Environment Configuration**
-4.   ```bash
+    ```bash
     cp .env.example .env
     ```
    - Update the `.env` file with your database credentials and other necessary configurations.
