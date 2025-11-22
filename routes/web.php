@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,18 +18,26 @@ use Illuminate\Support\Facades\Route;
 */
 
     Route::get('/',function(){
+        if(Auth::check()){
+            return redirect()->route('dashboard');
+        }
         return view('index');
     })->name('homepage');
 
-    Route::get('/loginpage',[AuthController::class,'showLoginForm'])->name('loginpage');
-    Route::get('/registerpage',[AuthController::class,'showRegisterForm'])->name('registerpage');
+    Route::get('/login-page',[AuthController::class,'showLoginForm'])->name('loginpage');
+    Route::get('/register-page',[AuthController::class,'showRegisterForm'])->name('registerpage');
 
     Route::middleware('auth:sanctum')->group(function () {
-        Route::get('/home',[AuthController::class,'home']);
-        // Route::get('/add-item',[AuthController::class,'create'])->name('items.create');
-        Route::get('/dashboard', function () {
-            return view('dashboard');
-        })->middleware(['auth', 'verified'])->name('dashboard');
+        Route::get('/dashboard', [ProductsController::class, 'frontEndIndex'])->name('dashboard');
+
+        // products
+        Route::get('/add-products', [AuthController::class,'showAddProducts'])->name('products.create'); //TODO
+
+        // countries
+        Route::get('/add-countries', [AuthController::class,'showAddCountries'])->name('countries.create'); //TODO
+
+        // categories
+        Route::get('/add-categories', [AuthController::class,'showAddCategories'])->name('categories.create'); //TODO
 });
 
 Route::middleware('auth')->group(function () {

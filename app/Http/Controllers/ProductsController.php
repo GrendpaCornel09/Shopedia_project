@@ -106,7 +106,8 @@ class ProductsController extends Controller
         ],200);
     }
 
-    public function front_end_index(Request $request){
-
+    public function frontEndIndex(Request $request){
+        $products=Products::paginate(10);
+        return view('dashboard',['products'=>$products]);
     }
 }

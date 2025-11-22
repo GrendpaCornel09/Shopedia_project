@@ -94,19 +94,29 @@ class AuthController extends Controller
 
     // frontend interaction
     public function showLoginForm(){
+        if(Auth::check()){
+            return redirect()->route('dashboard');
+        }
         return view('auth.login');
     }
     public function showRegisterForm(){
+        if(Auth::check()){
+            return redirect()->route('dashboard');
+        }
         return view('auth.register');
     }
 
-    public function home(){
-        return view('dashboard.home');
+    public function showAddProducts(){
+        $categories=Categories::all();
+        $countries=CountriesOfOrigin::all();
+        return view('add-products')->with('categories',$categories)->with('countries_of_origin',$countries);
     }
-
-    // public function create(){
-    //     $categories=Categories::all();
-    //     $countries=CountriesOfOrigin::all();
-    //     return view('dashboard.add-item')->with('categories',$categories)->with('countries_of_origin',$countries);
-    // }
+    public function showAddCountries(){
+        $countries=CountriesOfOrigin::all();
+        return view('add-products')->with('countries_of_origin',$countries);
+    }
+    public function showAddCategories(){
+        $categories=Categories::all();
+        return view('add-products')->with('categories',$categories);
+    }
 }
